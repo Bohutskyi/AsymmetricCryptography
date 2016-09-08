@@ -21,6 +21,11 @@ public class Main {
 
 //        BMGenerator.toFile("data/8.txt", 100000);
 //        BMGenerator.nextIteration();
+
+//        BBSGenerator.toFile("data/9.txt", 1000000);
+
+//        BBSGeneratorByBytes.toFile("data/9.2.txt", 1000000);
+
     }
 
 }
