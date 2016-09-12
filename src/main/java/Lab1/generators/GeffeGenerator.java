@@ -5,13 +5,18 @@ import java.io.IOException;
 import java.util.Random;
 
 /**
- *5. Генератор Джиффі
- */
+ * 5. Генератор Джиффі - – потоковий шифр, що генерує шифруючу гаму за рахунок нелінійної комбінації трьох
+ * лінійних регістрів зсуву.
+ * Регістр L11: x11 = x0 + x2;
+ * Регістр L9: y9 = y0 + y1 + y3 + y4;
+ * Регістр L10: s10 = s0 + s3.
+ * Вихідна послідовність бітів обчислюється за правилом z(i) = si * xi + (1 + si) yi
+ * */
 public class GeffeGenerator {
 
     private static Random random = new Random();
 
-    private static class LinearFeedbackShiftRegister1 {
+    private class LinearFeedbackShiftRegister1 {
         private int vector = random.nextInt();
         private static final int n = 11;
 
@@ -36,7 +41,7 @@ public class GeffeGenerator {
         }
     }
 
-    private static class LinearFeedbackShiftRegister2 {
+    private class LinearFeedbackShiftRegister2 {
         private int vector = random.nextInt();
         private static final int n = 9;
 
@@ -61,7 +66,7 @@ public class GeffeGenerator {
         }
     }
 
-    private static class LinearFeedbackShiftRegister3 {
+    private class LinearFeedbackShiftRegister3 {
         private int vector = random.nextInt();
         private static final int n = 10;
 
@@ -86,11 +91,11 @@ public class GeffeGenerator {
         }
     }
 
-    private static LinearFeedbackShiftRegister1 l1 = new LinearFeedbackShiftRegister1();
-    private static LinearFeedbackShiftRegister2 l2 = new LinearFeedbackShiftRegister2();
-    private static LinearFeedbackShiftRegister3 l3 = new LinearFeedbackShiftRegister3();
+    private LinearFeedbackShiftRegister1 l1 = new LinearFeedbackShiftRegister1();
+    private LinearFeedbackShiftRegister2 l2 = new LinearFeedbackShiftRegister2();
+    private LinearFeedbackShiftRegister3 l3 = new LinearFeedbackShiftRegister3();
 
-    private static int getNext() {
+    private int getNext() {
         l1.getNext();
         l2.getNext();
         l3.getNext();
@@ -101,7 +106,7 @@ public class GeffeGenerator {
         }
     }
 
-    public static void toFile(String fileName, int length) {
+    public void toFile(String fileName, int length) {
         try {
             FileWriter writer = new FileWriter(fileName);
             for (int i = 0; i < length; i++) {

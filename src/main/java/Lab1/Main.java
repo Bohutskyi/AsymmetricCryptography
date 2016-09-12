@@ -26,6 +26,9 @@ public class Main {
 
 //        BBSGeneratorByBytes.toFile("data/9.2.txt", 1000000);
 
+//        BMBytesGenerator bmBytesGenerator = new BMBytesGenerator();
+//        bmBytesGenerator.toFile("data/8.2.txt", 234758934, 125000);
+
     }
 
 }

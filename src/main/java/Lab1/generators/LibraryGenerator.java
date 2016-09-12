@@ -10,7 +10,7 @@ import java.io.IOException;
  */
 public class LibraryGenerator {
 
-    public static void toFile(String source, String destination, int length) {
+    public void toFile(String source, String destination, int length) {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(source));
             FileWriter writer = new FileWriter(destination);

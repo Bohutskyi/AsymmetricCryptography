@@ -10,16 +10,16 @@ import java.util.Random;
  */
 public class L89Generator {
 
-    private static ArrayList<Integer> list = new ArrayList<>();
+    private ArrayList<Integer> list = new ArrayList<>();
 
-    static {
+    {
         Random random = new Random();
         for (int i = 0; i < 89; i++) {
             list.add(random.nextInt(2));
         }
     }
 
-    private static int nextIteration() {
+    private int nextIteration() {
         int temp = list.get(0) ^ list.get(51);
         list.remove(0);
         list.add(temp);
@@ -27,7 +27,7 @@ public class L89Generator {
     }
 
 
-    public static void toFile(String fileName, int length) {
+    public void toFile(String fileName, int length) {
         try {
             FileWriter writer = new FileWriter(fileName);
             for (int i = 0; i < length; i++) {
