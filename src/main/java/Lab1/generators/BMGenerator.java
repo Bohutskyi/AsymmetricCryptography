@@ -18,16 +18,17 @@ public class BMGenerator {
     private static BigInteger T0 = new BigInteger(Integer.toString(Math.abs(new Random().nextInt())));
 
     public static void nextIteration() {
-        T0 = power(a, T0).mod(p);
+//        T0 = power(a, T0).mod(p);
+        T0 = power(a, T0, p);
     }
 
     public static void toFile(String fileName, int length) {
         try {
             FileWriter writer = new FileWriter(fileName);
             for (int i = 0; i < length; i++) {
-//                if (i % 1000 == 0) {
+                if (i % 50000 == 0) {
                     System.out.println("i = " + i);
-//                }
+                }
                 nextIteration();
                 if (T0.compareTo(threshold) == -1) {
                     writer.write("1");
@@ -52,6 +53,22 @@ public class BMGenerator {
             else {
                 power = power.subtract(BigInteger.ONE);
                 result = result.multiply(a);
+            }
+        }
+        return result;
+    }
+
+    private static BigInteger power(BigInteger a, BigInteger power, BigInteger mod) {
+        final BigInteger two = new BigInteger("2");
+        BigInteger result = BigInteger.ONE;
+        while (power.compareTo(BigInteger.ZERO) != 0) {
+            if (power.remainder(two).compareTo(BigInteger.ZERO) == 0) {
+                power = power.divide(two);
+                a = a.multiply(a).mod(mod);
+            }
+            else {
+                power = power.subtract(BigInteger.ONE);
+                result = (result.multiply(a)).mod(mod);
             }
         }
         return result;

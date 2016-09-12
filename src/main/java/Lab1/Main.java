@@ -19,7 +19,7 @@ public class Main {
 
 //        LibraryGenerator.toFile("data/text.txt", "data/7.txt", 1000000);
 
-//        BMGenerator.toFile("data/8.txt", 100000);
+//        BMGenerator.toFile("data/8.txt", 1000000);
 //        BMGenerator.nextIteration();
 
 //        BBSGenerator.toFile("data/9.txt", 1000000);
