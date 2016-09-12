@@ -1,5 +1,6 @@
 package Lab1;
 
+import Lab1.conversion.Conversion;
 import Lab1.generators.*;
 
 import java.math.BigInteger;
@@ -28,6 +29,8 @@ public class Main {
 
 //        BMBytesGenerator bmBytesGenerator = new BMBytesGenerator();
 //        bmBytesGenerator.toFile("data/8.2.txt", 234758934, 125000);
+
+//        Conversion.conversion("data/9.txt", "data/test/9.txt");
 
     }
 
