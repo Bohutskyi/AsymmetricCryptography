@@ -8,35 +8,15 @@ import java.util.Random;
 /**
  * 4. Генератор псевдовипадкових двійкових послідовностей L89
  */
-public class L89Generator {
+public class L89Generator extends L20Generator {
 
-    private ArrayList<Integer> list = new ArrayList<>();
-
-    {
-        Random random = new Random();
-        for (int i = 0; i < 89; i++) {
-            list.add(random.nextInt(2));
-        }
+    public L89Generator(String startValue) {
+        super(startValue);
     }
 
-    private int nextIteration() {
-        int temp = list.get(0) ^ list.get(51);
-        list.remove(0);
-        list.add(temp);
-        return temp;
-    }
-
-
-    public void toFile(String fileName, int length) {
-        try {
-            FileWriter writer = new FileWriter(fileName);
-            for (int i = 0; i < length; i++) {
-                writer.write(Integer.toString(nextIteration()));
-            }
-            writer.close();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+    protected int nextIteration() {
+        list.add(list.get(0) ^ list.get(51));
+        return list.remove(0);
     }
 
 }

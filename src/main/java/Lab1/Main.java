@@ -14,9 +14,12 @@ public class Main {
 
 //        LehmerLowGenerator l = new LehmerLowGenerator();
 
-//        L20Generator.toFile("data/3.txt", 1000000);
+//        L20Generator l20Generator = new L20Generator("10010110101110101010");
+//        l20Generator.toFile("data/3.txt", 1000000);
 
 //        L89Generator.toFile("data/4.txt", 1000000);
+        L89Generator l89Generator = new L89Generator("01010101101010101001001011010110111110000101010010101010100101010101010100101010101001010");
+        l89Generator.toFile("data/4.txt", 1000000);
 
 //        GeffeGenerator.toFile("data/5.txt", 1000000);
 
@@ -42,8 +45,8 @@ public class Main {
 //        lehmerLowGenerator.toFile("data/2.1.txt", 125000);
 
 
-        LehmerHighGenerator lehmerHighGenerator = new LehmerHighGenerator(8649705);
-        lehmerHighGenerator.toFile("data/2.2.txt", 125000);
+//        LehmerHighGenerator lehmerHighGenerator = new LehmerHighGenerator(8649705);
+//        lehmerHighGenerator.toFile("data/2.2.txt", 125000);
 
 
     }

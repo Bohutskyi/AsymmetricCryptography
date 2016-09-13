@@ -11,20 +11,17 @@ import java.util.Random;
  */
 public class L20Generator {
 
-    private ArrayList<Integer> list = new ArrayList<>();
+    protected ArrayList<Integer> list = new ArrayList<>();
 
-    {
-        Random random = new Random();
-        for (int i = 0; i < 20; i++) {
-            list.add(random.nextInt(2));
+    public L20Generator(String startValue) {
+        for (int i = 0, n = startValue.length(); i < n; i++) {
+            list.add(Character.getNumericValue(startValue.charAt(i)));
         }
     }
 
-    private int nextIteration() {
-        int temp = list.get(0) ^ list.get(11) ^ list.get(15) ^ list.get(17);
-        list.remove(0);
-        list.add(temp);
-        return temp;
+    protected int nextIteration() {
+        list.add(list.get(0) ^ list.get(11) ^ list.get(15) ^ list.get(17));
+        return list.remove(0);
     }
 
     public void toFile(String fileName, int length) {
