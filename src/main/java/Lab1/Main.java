@@ -4,6 +4,8 @@ import Lab1.conversion.Conversion;
 import Lab1.generators.*;
 
 import java.math.BigInteger;
+import java.security.SecureRandom;
+import java.util.Random;
 
 public class Main {
 
@@ -31,6 +33,11 @@ public class Main {
 //        bmBytesGenerator.toFile("data/8.2.txt", 234758934, 125000);
 
 //        Conversion.conversion("data/9.txt", "data/test/9.txt");
+//        SecureRandom random = new SecureRandom();
+//        for (int i = 0; i < 10; i++) {
+//            System.out.println(random.nextInt());
+//        }
+
 
     }
 
