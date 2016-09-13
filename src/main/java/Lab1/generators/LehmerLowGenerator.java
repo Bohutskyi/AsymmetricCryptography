@@ -3,6 +3,7 @@ package Lab1.generators;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.util.Locale;
 import java.util.Random;
 
 /**
@@ -12,47 +13,34 @@ import java.util.Random;
  * */
 public class LehmerLowGenerator {
 
-    private static final BigInteger m = new BigInteger("4294967296");
-    private static final BigInteger a = new BigInteger("65537");
-    private static final BigInteger c = new BigInteger("119");
-//    private static BigInteger x = new BigInteger(Integer.toString(Math.abs(new Random().nextInt())));
-    private static BigInteger x = new BigInteger("1029252855");
+    protected static final long a = 65537;
+    protected static final long m = 4294967296L;
+    protected static final long c = 119;
 
-    static {
-        System.out.println("x = " + x);
-        x = ((x.multiply(a)).add(c)).mod(m);
-        int f = x.intValue();
-        System.out.println(x);
-        System.out.println(f);
-        System.out.println(Integer.toBinaryString(f));
-        x = ((x.multiply(a)).add(c)).mod(m);
-         f = x.intValue();
-        System.out.println(x);
-        System.out.println(f);
-        System.out.println(Integer.toBinaryString(f));
-        x = ((x.multiply(a)).add(c)).mod(m);
-        f = x.intValue();
-        System.out.println(x);
-        System.out.println(f);
-        System.out.println(Integer.toBinaryString(f));
-        System.out.println();
+    protected long x0;
+
+    public LehmerLowGenerator(int startValue) {
+        this.x0 = startValue;
     }
 
-    private void iteration() {
-        x = ((x.multiply(a)).add(c)).mod(m);
-    }
-
-    public static void toFile(String fileName, int length) {
+    public void toFile(String fileName, int byteCount) {
         try {
             FileWriter writer = new FileWriter(fileName);
-            for (int i = 0; i < length; i++) {
-//                writer.write();
+            for (int i = 0; i < byteCount; i++) {
+                x0 = ((a * x0) + c) % m;
+                StringBuilder result = new StringBuilder(Long.toBinaryString(x0));
+                while (result.length() < 8) {
+                    result.insert(0, "0");
+                }
+                while (result.length() > 8) {
+                    result.delete(0, 1);
+                }
+                writer.write(result.toString());
             }
             writer.close();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
-
 
 }

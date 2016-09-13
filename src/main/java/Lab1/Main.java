@@ -37,6 +37,13 @@ public class Main {
 //        for (int i = 0; i < 10; i++) {
 //            System.out.println(random.nextInt());
 //        }
+//
+//        LehmerLowGenerator lehmerLowGenerator = new LehmerLowGenerator(27438234);
+//        lehmerLowGenerator.toFile("data/2.1.txt", 125000);
+
+
+        LehmerHighGenerator lehmerHighGenerator = new LehmerHighGenerator(8649705);
+        lehmerHighGenerator.toFile("data/2.2.txt", 125000);
 
 
     }
