@@ -3,6 +3,7 @@ package Lab1;
 import Lab1.conversion.Conversion;
 import Lab1.criterion.Test1;
 import Lab1.criterion.Test2;
+import Lab1.criterion.Test3;
 import Lab1.generators.*;
 
 import java.math.BigInteger;
@@ -53,9 +54,11 @@ public class Main {
 //        Test1 test1 = new Test1("data/test/1.txt");
 //        test1.check();
 
-        Test2 test2 = new Test2("data/test/1.txt");
-        test2.check();
+//        Test2 test2 = new Test2("data/test/1.txt");
+//        test2.check();
 
+        Test3 test3 = new Test3("data/test/1.txt", 40);
+        test3.check();
 
     }
 
