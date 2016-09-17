@@ -8,9 +8,14 @@ import Lab1.generators.*;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Main {
+
+    private static TreeMap<String, String> map = new TreeMap<>();
 
     public static void main(String[] args) {
 //        JavaGenerator.toFile("data/1.txt", 1000000);
@@ -57,8 +62,29 @@ public class Main {
 //        Test2 test2 = new Test2("data/test/1.txt");
 //        test2.check();
 
-        Test3 test3 = new Test3("data/test/1.txt", 40);
-        test3.check();
+//        Test3 test3 = new Test3("data/test/1.txt", 40);
+//        test3.check();
+
+//        Conversion.conversion("data/temp/6.txt", "data/test/6.txt");
+
+//        String[] temp = {"1", "2.1", "2.2", "3", "4", "5", "6", "7", "8", "8.2", "9", "9.2"};
+//        System.out.println("Test1");
+//        for (String s : temp) {
+//            System.out.println(s);
+//            StringBuilder result = new StringBuilder("data/test/");
+//            result.append(s);
+//            result.append(".txt");
+//            new Test1(result.toString()).check();
+//        }
+
+//        System.out.println("Test1");
+//        new Test1("data/test/7.txt").check();
+//        System.out.println("=============================");
+//        System.out.println("Test2");
+//        new Test2("data/test/7.txt").check();
+//        System.out.println("=============================");
+//        System.out.println("Test3");
+//        new Test3("data/test/7.txt", 30).check();
 
     }
 

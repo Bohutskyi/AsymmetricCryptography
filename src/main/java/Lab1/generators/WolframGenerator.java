@@ -11,11 +11,11 @@ public class WolframGenerator {
 
     private int r0;
 
-    WolframGenerator(int startValue) {
+    public WolframGenerator(int startValue) {
         r0 = startValue;
     }
 
-    public void toFile(int bitCount, String fileName) {
+    public void toFile(String fileName, int bitCount) {
         int x = 0;
         try {
             FileWriter writer = new FileWriter(fileName);

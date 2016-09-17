@@ -15,7 +15,6 @@ import java.util.TreeMap;
  */
 public class Test3 {
 
-//    private int[][] table;
     private ArrayList<TreeMap<String, Integer>> mapSet;
     private int r, m, divider;
 
@@ -29,7 +28,6 @@ public class Test3 {
             reader = new BufferedReader(new FileReader(fileName));
             this.r = r;
             this.divider = m / r;
-//            this.table = new int[r][divider];
             this.mapSet = new ArrayList<>();
 
 
@@ -37,8 +35,6 @@ public class Test3 {
             while ((temp = reader.readLine()) != null) {
                 String[] t = temp.split(" ");
                 for (int i = 0, n = t.length; i < n; i++) {
-//                    table[count1][count2] = Integer.parseInt(t[i]);
-
                     if (count2 == 0) {
                         mapSet.add(new TreeMap<>());
                     }
@@ -85,7 +81,8 @@ public class Test3 {
     private int sumOnAllMaps(String i) {
         int result = 0;
         for (TreeMap<String, Integer> map : mapSet) {
-            result += map.get(i);
+            if (map.containsKey(i))
+                result += map.get(i);
         }
         return result;
     }
