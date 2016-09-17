@@ -21,7 +21,7 @@ public class WolframGenerator {
             FileWriter writer = new FileWriter(fileName);
             for (int i = 0; i < bitCount; i++) {
                 x = r0 % 2;
-                r0 = (Integer.rotateLeft(r0, 1)) ^ (r0 | (Integer.rotateRight(r0, 1)));
+                r0 = Integer.rotateLeft(r0, 1) ^ (r0 | (Integer.rotateRight(r0, 1)));
 
                 writer.write(Integer.toString(Math.abs(x)));
             }

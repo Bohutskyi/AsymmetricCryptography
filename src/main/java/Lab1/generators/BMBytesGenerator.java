@@ -11,6 +11,10 @@ public class BMBytesGenerator extends BMGenerator {
 
     protected static final BigInteger threshold = p.subtract(new BigInteger("1")).divide(new BigInteger("256"));
 
+    public BMBytesGenerator(int startValue) {
+        super(startValue);
+    }
+
     public void toFile(String fileName, int startValue, int byteLength) {
         T0 = new BigInteger(Integer.toString(startValue));
         try {

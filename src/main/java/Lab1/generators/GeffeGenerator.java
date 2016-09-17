@@ -14,10 +14,10 @@ import java.util.Random;
  * */
 public class GeffeGenerator {
 
-    private static Random random = new Random();
+//    private static Random random = new Random();
 
     private class LinearFeedbackShiftRegister1 {
-        private int vector = random.nextInt();
+        private int vector;//' = random.nextInt();
         private static final int n = 11;
 
         public void setVector(int vector) {
@@ -42,7 +42,7 @@ public class GeffeGenerator {
     }
 
     private class LinearFeedbackShiftRegister2 {
-        private int vector = random.nextInt();
+        private int vector;// = random.nextInt();
         private static final int n = 9;
 
         public void setVector(int vector) {
@@ -58,7 +58,7 @@ public class GeffeGenerator {
         }
 
         public long getNext() {
-            int temp = ((vector >> 3) & 1) ^ ((vector >> 2) & 1) ^ ((vector >> 1) & 1) ^ ((vector) & 1);
+            int temp = ((vector >> 4) & 1) ^ ((vector >> 3) & 1) ^ ((vector >> 1) & 1) ^ ((vector) & 1);
             temp = temp & 1;
             vector = vector >> 1;
             vector = (vector ^ (temp << (n - 1)));
@@ -67,7 +67,7 @@ public class GeffeGenerator {
     }
 
     private class LinearFeedbackShiftRegister3 {
-        private int vector = random.nextInt();
+        private int vector;// = random.nextInt();
         private static final int n = 10;
 
         public void setVector(int vector) {
@@ -94,6 +94,12 @@ public class GeffeGenerator {
     private LinearFeedbackShiftRegister1 l1 = new LinearFeedbackShiftRegister1();
     private LinearFeedbackShiftRegister2 l2 = new LinearFeedbackShiftRegister2();
     private LinearFeedbackShiftRegister3 l3 = new LinearFeedbackShiftRegister3();
+
+    public GeffeGenerator(int startValue1, int startValue2, int startValue3) {
+        l1.setVector(startValue1);
+        l2.setVector(startValue2);
+        l3.setVector(startValue3);
+    }
 
     private int getNext() {
         l1.getNext();

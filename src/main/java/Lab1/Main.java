@@ -29,7 +29,9 @@ public class Main {
 //        L89Generator l89Generator = new L89Generator("01010101101010101001001011010110111110000101010010101010100101010101010100101010101001010");
 //        l89Generator.toFile("data/4.txt", 1000000);
 
-//        GeffeGenerator.toFile("data/5.txt", 1000000);
+//        GeffeGenerator geffeGenerator = new GeffeGenerator(1234, 5243432, 16789);
+//        geffeGenerator.toFile("data/temp.txt", 1000000);
+//        Conversion.conversion("data/temp.txt", "data/temp1.txt");
 
 //        LibraryGenerator.toFile("data/text.txt", "data/7.txt", 1000000);
 
@@ -77,14 +79,19 @@ public class Main {
 //            new Test1(result.toString()).check();
 //        }
 
-//        System.out.println("Test1");
-//        new Test1("data/test/7.txt").check();
-//        System.out.println("=============================");
-//        System.out.println("Test2");
-//        new Test2("data/test/7.txt").check();
-//        System.out.println("=============================");
-//        System.out.println("Test3");
-//        new Test3("data/test/7.txt", 30).check();
+//        BMGenerator wolframGenerator = new BMGenerator(31);
+        GeffeGenerator wolframGenerator = new GeffeGenerator(27, 11, 31);
+        wolframGenerator.toFile("data/temp.txt", 1000000);
+        Conversion.conversion("data/temp.txt", "data/temp1.txt");
+
+        System.out.println("Test1");
+        new Test1("data/temp1.txt").check();
+        System.out.println("=============================");
+        System.out.println("Test2");
+        new Test2("data/temp1.txt").check();
+        System.out.println("=============================");
+        System.out.println("Test3");
+        new Test3("data/temp1.txt", 30).check();
 
     }
 

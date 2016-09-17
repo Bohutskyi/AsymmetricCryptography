@@ -14,7 +14,11 @@ public class BMGenerator {
     protected static final BigInteger a = new BigInteger("5B88C41246790891C095E2878880342E88C79974303BD0400B090FE38A688356", 16);
     protected static final BigInteger threshold = p.subtract(new BigInteger("1")).divide(new BigInteger("2"));
 
-    protected BigInteger T0 = new BigInteger(Integer.toString(Math.abs(new Random().nextInt())));
+    protected BigInteger T0;// = new BigInteger(Integer.toString(Math.abs(new Random().nextInt())));
+
+    public BMGenerator(int startValue) {
+        this.T0 = new BigInteger(Integer.toString(startValue), 10);
+    }
 
     protected void nextIteration() {
         T0 = power(a, T0, p);
@@ -24,6 +28,9 @@ public class BMGenerator {
         try {
             FileWriter writer = new FileWriter(fileName);
             for (int i = 0; i < length; i++) {
+                if (i % 50000 == 0) {
+                    System.out.println("i = " + i);
+                }
                 nextIteration();
                 if (T0.compareTo(threshold) == -1) {
                     writer.write("1");
