@@ -49,7 +49,10 @@ public class Test2 {
         double x = 0.;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                x += (Math.pow(table[i][j], 2) / (sumOnRow(i) * sumOnColumn(j)));
+                int temp;
+                if ((temp = sumOnRow(i) * sumOnColumn(j)) != 0){
+                    x += (Math.pow(table[i][j], 2) / (temp));
+                }
             }
         }
         x -= 1;

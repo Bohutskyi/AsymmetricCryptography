@@ -32,4 +32,16 @@ public class Conversion {
         }
     }
 
+    /*public static String conversion(String source) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0, n = source.length(); i <= n - 8; i += 8) {
+            StringBuilder temp = new StringBuilder();
+            for (int j = 0; j < 8; j++) {
+                temp.append(source.charAt(i + j));
+            }
+            result.append(Integer.parseInt(temp.toString(), 2));
+        }
+        return result.toString();
+    }*/
+
 }

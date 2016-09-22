@@ -27,7 +27,7 @@ public class LehmerLowGenerator {
         try {
             FileWriter writer = new FileWriter(fileName);
             for (int i = 0; i < byteCount; i++) {
-                x0 = ((a * x0) + c) % m;
+                x0 = ((a * x0) + c) % m; // y0 = x0 & (0xFF);
                 StringBuilder result = new StringBuilder(Long.toBinaryString(x0));
                 while (result.length() < 8) {
                     result.insert(0, "0");

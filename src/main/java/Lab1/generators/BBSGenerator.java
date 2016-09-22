@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class BBSGenerator {
 
-    protected static final BigInteger p = new BigInteger("D5BBB96D30086EC484EBA3D7F9CAEB07", 16);
+    protected static final BigInteger p = new BigInteger("0D5BBB96D30086EC484EBA3D7F9CAEB07", 16);
     protected static final BigInteger q = new BigInteger("425D2B9BFDB25B9CF6C416CC6E37B59C1F", 16);
     protected static final BigInteger n = p.multiply(q);
     protected static BigInteger r0 = new BigInteger(Long.toString(Math.abs(new Random().nextLong() + 2)));

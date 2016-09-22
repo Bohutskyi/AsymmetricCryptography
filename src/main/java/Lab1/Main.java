@@ -80,7 +80,11 @@ public class Main {
 //        }
 
 //        BMGenerator wolframGenerator = new BMGenerator(31);
-        GeffeGenerator wolframGenerator = new GeffeGenerator(27, 11, 31);
+//        GeffeGenerator wolframGenerator = new GeffeGenerator(27, 11, 31);
+
+//        BMGenerator wolframGenerator = new BMGenerator(943251);
+//        L20Generator wolframGenerator = new L20Generator("01010111001100101110");
+        LehmerLowGenerator wolframGenerator = new LehmerLowGenerator(41);
         wolframGenerator.toFile("data/temp.txt", 1000000);
         Conversion.conversion("data/temp.txt", "data/temp1.txt");
 
@@ -92,6 +96,8 @@ public class Main {
         System.out.println("=============================");
         System.out.println("Test3");
         new Test3("data/temp1.txt", 30).check();
+//
+
 
     }
 

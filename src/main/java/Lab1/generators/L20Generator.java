@@ -36,4 +36,12 @@ public class L20Generator {
         }
     }
 
+    public String generate(int length) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            result.append(nextIteration());
+        }
+        return result.toString();
+    }
+
 }
