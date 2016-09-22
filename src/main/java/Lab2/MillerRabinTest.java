@@ -37,11 +37,11 @@ public class MillerRabinTest {
             }
 
             BigInteger temp = x.modPow(d, p);
-            if(!temp.equals(BigInteger.ONE) && !temp.equals(MillerRabinTest.BIGINTEGERCONST.MINUSONE) && !temp.equals(p.subtract(BigInteger.ONE))) {
+            if (!temp.equals(BigInteger.ONE) && !temp.equals(p.subtract(BigInteger.ONE))) {
                 int r;
                 for(r = 1; r < s; ++r) {
                     temp = temp.modPow(MillerRabinTest.BIGINTEGERCONST.TWO, p);
-                    if(temp.equals(MillerRabinTest.BIGINTEGERCONST.MINUSONE) || temp.equals(p.subtract(BigInteger.ONE))) {
+                    if(temp.equals(p.subtract(BigInteger.ONE))) {
                         break;
                     } else if(temp.equals(BigInteger.ONE)) {
                         return false;
@@ -55,13 +55,12 @@ public class MillerRabinTest {
         return true;
     }
 
-    public static void main(String[] args) {
-        for(int i = 10; i < 200; ++i) {
-            BigInteger temp = (new BigInteger("2")).pow(i).subtract(BigInteger.ONE);
-            if(isPrime(temp, 10)) {
-                System.out.println(temp.toString());
-            }
-        }
-
-    }
+//    public static void main(String[] args) {
+//        for(int i = 10; i < 4000; ++i) {
+//            BigInteger temp = (new BigInteger("2")).pow(i).subtract(BigInteger.ONE);
+//            if(isPrime(temp, 10)) {
+//                System.out.println(temp.toString());
+//            }
+//        }
+//    }
 }
