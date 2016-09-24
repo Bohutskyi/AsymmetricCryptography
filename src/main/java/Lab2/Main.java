@@ -23,6 +23,31 @@ public class Main {
         System.out.println("A.E: " + rsa.getA().getE().toString(16));
         System.out.println("A.N: " + rsa.getA().getN().toString());
         System.out.println("A.N: " + rsa.getA().getN().toString(16));
+        System.out.println(rsa.getB().getE().multiply(rsa.getB().getN()).compareTo(rsa.getA().getE().multiply(rsa.getA().getN())));
+        System.out.println("----------------------------------------Signature-------------------------------------------");
+//        BigInteger newKey = new BigInteger("13491239543289265");
+        BigInteger newKey = new BigInteger("13491201023439543289265");
+        System.out.println("New Key: " + newKey.toString());
+        System.out.println("New Key: " + newKey.toString(16));
+        BigInteger[] temp = rsa.getA().sendVerification(rsa.getB(), newKey);
+        System.out.println();
+        System.out.println("--------------------sendVerification-------------------------------------------");
+        for (BigInteger i : temp) {
+            System.out.println(i.toString());
+            System.out.println(i.toString(16));
+        }
+        System.out.println();
+        System.out.println("--------------------confidentiality-------------------------------------------");
+        temp = rsa.getB().confidentiality(temp);
+        for (BigInteger i : temp) {
+            System.out.println(i.toString());
+            System.out.println(i.toString(16));
+        }
+        System.out.println();
+        System.out.println("--------------------authentication-------------------------------------------");
+        System.out.println(rsa.getB().authentication(temp, rsa.getA()).toString());
+        System.out.println(rsa.getB().authentication(temp, rsa.getA()).toString(16));
+
     }
 
 }

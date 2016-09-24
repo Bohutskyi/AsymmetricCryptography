@@ -35,6 +35,35 @@ public class User {
         return C.modPow(d, n);
     }
 
-    
+    public BigInteger[] digitalSignature(BigInteger M) {
+        BigInteger[] result = new BigInteger[2];
+        result[0] = new BigInteger(M.toString());
+        result[1] = M.modPow(d, n);
+        return result;
+    }
+
+    public BigInteger[] sendVerification(User receiver, BigInteger newKey) {
+//        if (B.getN().compareTo(this.n) < 0) {
+//            return null;
+//        }
+        BigInteger[] result = new BigInteger[2];
+        result[0] = newKey.modPow(receiver.getE(), receiver.getN());
+        BigInteger s = newKey.modPow(d, n);
+        result[1] = s.modPow(receiver.getE(), receiver.getN());
+        return result;
+    }
+
+    public BigInteger[] confidentiality(BigInteger[] message) {
+        BigInteger[] result = new BigInteger[2];
+        result[0] = message[0].modPow(d, n);
+        result[1] = message[1].modPow(d, n);
+        return result;
+    }
+
+    public BigInteger authentication(BigInteger[] message, User sender) {
+        BigInteger s = message[1].modPow(d, n);
+        return s.modPow(sender.getE(), sender.getN());
+    }
+
 
 }

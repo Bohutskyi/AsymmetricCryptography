@@ -17,7 +17,8 @@ public class RSA {
         pB = randomPrime(bitCount, k, l20Generator);
         do {
             qB = randomPrime(bitCount, k, l20Generator);
-        } while (pA.multiply(qA).compareTo(pB.multiply(qB)) <= 0);
+//        } while (pA.multiply(qA).compareTo(pB.multiply(qB)) <= 0);
+        } while (pA.multiply(qA).compareTo(pB.multiply(qB)) > 0);
         A = new User(qA, pA);
         B = new User(qB, pB);
     }
