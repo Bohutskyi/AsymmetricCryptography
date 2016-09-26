@@ -17,6 +17,7 @@ public class User {
         this.fn = (q.subtract(BigInteger.ONE)).multiply(p.subtract(BigInteger.ONE));
         this.e = new BigInteger(candidate);
         this.d = GCD.getReverse(e, fn);
+        System.out.println("d: " + d.toString(16));
     }
 
     public BigInteger getN() {
@@ -42,13 +43,19 @@ public class User {
         return result;
     }
 
+    public boolean checkSignature(BigInteger[] sign, User sender) {
+        return sign[1].modPow(sender.getE(), sender.getN()).equals(sign[0]);
+    }
+
     public BigInteger[] sendVerification(User receiver, BigInteger newKey) {
-//        if (B.getN().compareTo(this.n) < 0) {
-//            return null;
-//        }
+        if (receiver.getN().compareTo(this.n) < 0) {
+            return null;
+        }
         BigInteger[] result = new BigInteger[2];
         result[0] = newKey.modPow(receiver.getE(), receiver.getN());
         BigInteger s = newKey.modPow(d, n);
+        System.out.println("s: " + s.toString());
+        System.out.println("s: " + s.toString(16));
         result[1] = s.modPow(receiver.getE(), receiver.getN());
         return result;
     }
@@ -61,8 +68,7 @@ public class User {
     }
 
     public BigInteger authentication(BigInteger[] message, User sender) {
-        BigInteger s = message[1].modPow(d, n);
-        return s.modPow(sender.getE(), sender.getN());
+        return message[1].modPow(sender.getE(), sender.getN());
     }
 
 

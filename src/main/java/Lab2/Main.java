@@ -23,12 +23,25 @@ public class Main {
         System.out.println("A.E: " + rsa.getA().getE().toString(16));
         System.out.println("A.N: " + rsa.getA().getN().toString());
         System.out.println("A.N: " + rsa.getA().getN().toString(16));
+        System.out.println("B.E: " + rsa.getB().getE().toString());
+        System.out.println("B.E: " + rsa.getB().getE().toString(16));
+        System.out.println("B.N: " + rsa.getB().getN().toString());
+        System.out.println("B.N: " + rsa.getB().getN().toString(16));
         System.out.println(rsa.getB().getE().multiply(rsa.getB().getN()).compareTo(rsa.getA().getE().multiply(rsa.getA().getN())));
         System.out.println("----------------------------------------Signature-------------------------------------------");
 //        BigInteger newKey = new BigInteger("13491239543289265");
         BigInteger newKey = new BigInteger("13491201023439543289265");
         System.out.println("New Key: " + newKey.toString());
         System.out.println("New Key: " + newKey.toString(16));
+
+
+        System.out.println("*********************************************************************************");
+        BigInteger[] t = rsa.getA().digitalSignature(newKey);
+        for (BigInteger i : t) {
+            System.out.println(i.toString(16));
+        }
+        System.out.println(rsa.getB().checkSignature(t, rsa.getA()));
+        System.out.println("*********************************************************************************");
         BigInteger[] temp = rsa.getA().sendVerification(rsa.getB(), newKey);
         System.out.println();
         System.out.println("--------------------sendVerification-------------------------------------------");

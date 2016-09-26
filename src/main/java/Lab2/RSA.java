@@ -11,7 +11,7 @@ public class RSA {
     RSA(int bitCount) {
         L20Generator l20Generator = new L20Generator("10010101001010110101");
         BigInteger pA, qA, pB, qB;
-        int k = 10;
+        int k = 20;
         pA = randomPrime(bitCount, k, l20Generator);
         qA = randomPrime(bitCount, k, l20Generator);
         pB = randomPrime(bitCount, k, l20Generator);
