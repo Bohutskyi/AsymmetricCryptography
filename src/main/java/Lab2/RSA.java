@@ -8,7 +8,7 @@ public class RSA {
 
     private User A, B;
 
-    RSA(int bitCount) {
+    public RSA(int bitCount) {
         L20Generator l20Generator = new L20Generator("10010101001010110101");
         BigInteger pA, qA, pB, qB;
         int k = 20;
